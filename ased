@@ -1,0 +1,7 @@
+#!/bin/sh
+FILE=$PWD/$1
+OUTPUT=$PWD/$1.sed
+
+cp $1 $OUTPUT
+sed ':a;N;$!ba;s/\n/\\n/g' $OUTPUT -i
+sed 's/  /\\t/g'  $OUTPUT -i

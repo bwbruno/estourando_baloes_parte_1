@@ -1,0 +1,22 @@
+#!/bin/sh
+# wget "dontpad.com/asubl.txt" -O asubl; chmod a+rx asubl; ./asubl
+# http://terminalroot.com.br/2015/07/30-exemplos-do-comando-sed-com-regex.html
+# sed ':a;N;$!ba;s/\n/\\n/g' file
+# sed 's/  /\\t/g' file 
+
+
+code &
+
+code --install-extension zhuangtongfa.Material-theme
+code --install-extension pkief.material-icon-theme
+code --install-extension coenraads.bracket-pair-colorizer
+code --install-extension ms-vscode.cpptools
+code --install-extension jeff-hykin.better-cpp-syntax
+code --install-extension thekalinga.bootstrap4-vscode
+code --install-extension ritwickdey.liveserver
+
+echo '{\n\t"java.implicitProjectConfig.experimentalDecorators": true,\n\t"files.exclude": {\n\t\t"**/node_modules": true\n\t},\n\t"window.zoomLevel": 0,\n\t"editor.minimap.enabled": false,\n\t"diffEditor.ignoreTrimWhitespace": true,\n\t"diffEditor.renderSideBySide": false,\n\t"terminal.integrated.rendererType": "dom",\n\t"editor.codeActionsOnSave": {\n\t\t"source.fixAll.tslint": true\n\t},\n\t"workbench.iconTheme": "material-icon-theme",\n\t"type.updateImportsOnFileMove.enabled": "always",\n\t"files.watcherExclude": {\n\t\t"**/.git/objects/**": true,\n\t\t"**/.git/subtree-cache/**": true,\n\t\t"**/node_modules/*/**": true\n\t},\n\t"workbench.colorTheme": "One Dark Pro,\n\t"editor.insertSpaces": false"\n}' | tee $HOME/.config/Code/User/settings.json
+
+echo '[\n\t{\n\t\t"key": "cmd+a",\n\t\t"command": "editor.action.codeAction",\n\t\t"args": {\n\t\t\t"kind": "source.fixAll.tslint",\n\t\t\t"apply": "first"\n\t\t}\n\t},\n\t{\n\t\t"key": "ctrl+k",\n\t\t"command": "cursorDown",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "down",\n\t\t"command": "cursorDown",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+shift+k",\n\t\t"command": "cursorDownSelect",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "shift+down",\n\t\t"command": "cursorDownSelect",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+i",\n\t\t"command": "cursorUp",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "up",\n\t\t"command": "cursorUp",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+shift+i",\n\t\t"command": "cursorUpSelect",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "shift+up",\n\t\t"command": "cursorUpSelect",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+j",\n\t\t"command": "cursorLeft",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "left",\n\t\t"command": "cursorLeft",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+shift+j",\n\t\t"command": "cursorLeftSelect",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "shift+left",\n\t\t"command": "cursorLeftSelect",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+l",\n\t\t"command": "cursorRight",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "right",\n\t\t"command": "cursorRight",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+shift+l",\n\t\t"command": "cursorRightSelect",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "shift+right",\n\t\t"command": "cursorRightSelect",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+k",\n\t\t"command": "selectNextSuggestion",\n\t\t"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+i",\n\t\t"command": "selectPrevSuggestion",\n\t\t"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+u",\n\t\t"command": "cursorWordStartLeft",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+alt+j",\n\t\t"command": "cursorWordStartLeftSelect",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+o",\n\t\t"command": "cursorWordEndRight",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+alt+l",\n\t\t"command": "cursorWordEndRightSelect",\n\t\t"when": "textInputFocus"\n\t},\n\t{\n\t\t"key": "ctrl+h",\n\t\t"command": "workbench.action.terminal.toggleTerminal"\n\t},\n\t{\n\t\t"key": "ctrl+alt+y",\n\t\t"command": "editor.action.formatDocument",\n\t\t"when": "editorTextFocus && !editorReadonly"\n\t},\n\t{\n\t\t"key": "ctrl+shift+i",\n\t\t"command": "-editor.action.formatDocument",\n\t\t"when": "editorTextFocus && !editorReadonly"\n\t}\n]' | tee $HOME/.config/Code/User/keybindings.json
+
+

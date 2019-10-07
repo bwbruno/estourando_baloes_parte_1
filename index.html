@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Estourando balões</title>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+		<script language='Javascript'>
+			
+			
+			function iniciaJogo(){
+				var nivel_jogo = document.getElementById('nivel_jogo').value;
+
+				window.location.href = 'jogo.html?'+nivel_jogo;
+				
+			}
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<p>
+				<b>Nível: </b>
+				<select id="nivel_jogo">
+					<option value="180">Fácil</option>
+					<option value="120">Normal</option>
+					<option value="30">Difícil</option>
+				</select>
+			</p>
+			<br />
+			<img src="imagens/iniciar.png" onclick="iniciaJogo()" />
+
+	</body>
+
+
+	<script>
+	
+		
+	</script>
+	
+</html>

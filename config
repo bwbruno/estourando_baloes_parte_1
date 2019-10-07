@@ -1,0 +1,14 @@
+#!/bin/sh
+
+git config --global color.ui auto
+git config --global user.name "bwbruno"
+git config --global user.email "bruno.wagner.b.r@gmail.com"
+
+# wget dontpad.com/axmodmap.txt -O modmap; chmod a+rx modmap; ./modmap
+wget dontpad.com/asubl.txt -O subl; chmod a+rx subl; ./subl
+wget dontpad.com/ased.txt -O ased; chmod a+rx ased;
+
+if [ $# -eq 1 ]
+	then
+		wget "dontpad.com/angmaterialize.txt"; chmod a+rx angmaterialize.txt; ./angmaterialize.txt projeto
+fi
