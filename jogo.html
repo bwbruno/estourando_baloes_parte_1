@@ -5,12 +5,12 @@
 	<meta charset="UTF-8">
 
 	<title>Estourando balões</title>
+	<style>
 
-
-
+	</style>
 </head>
 
-<body>
+<body >
 	<div style="float:left; width:auto; height:500px; background: #FFF; border: solid 1px #A2A2A2">
 		<table border="1">
 			<tr>
@@ -29,7 +29,7 @@
 				<td>
 					<img src="imagens/balao_azul_grande_estourado.png" />
 				</td>
-				<td>
+				<td id="cont_pow">
 					10
 				</td>
 			</tr>
@@ -46,25 +46,38 @@
 
 	</div>
 
-	<div id="campo" style="float: left; width: 600px; height: 500px; background: url('imagens/cenario.png'); background-position: bottom;">
-		<img src="imagens/balao_azul_grande.png" alt="" srcset="">
+	<div id="campo" style="float: left; width: 650px; height: 500px; background: url('imagens/cenario.png'); background-position: bottom;">
+
 	</div>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	 crossorigin="anonymous"></script>
 
 	<script>
 		var qnt_baloes = 80;
-		for(let i = 0; i < qnt_baloes; i++){
-			$("#campo").append(`<img style="height:50px" id="${i}" class="balao" onclick="estoura(${i})"  src="imagens/balao_azul_grande.png" alt="">`);
+		var qnt_estourados = 0;
+		//Inicializando os contadores e atualizando na tela!
+		$("#cont_vivos").text(qnt_baloes);
+		$("#cont_pow").text(qnt_estourados);
+
+		for (let i = 0; i < qnt_baloes; i++) {
+			$("#campo").append(`<img id="${i}" style="height:64px;width:64px" class="balao" onclick="estoura(${i})"  src="imagens/balao_azul_grande.png" alt="">`);
 		}
 
 		function estoura(i) {
-			$("#"+i).attr("src", "imagens/balao_azul_grande_estourado.png")
-			
-			qnt_baloes--;
-			$("#cont_vivos").text(qnt_baloes);
+			if ($("#" + i).attr("src") != "imagens/balao_azul_grande_estourado.png") {
+				$("#" + i).attr("src", "imagens/balao_azul_grande_estourado.png");
+				qnt_baloes--;
+				qnt_estourados++;
+				$("#cont_vivos").text(qnt_baloes);
+				$("#cont_pow").text(qnt_estourados);
+				if (qnt_baloes==0){
+					alert("Ganhasse gld, drx!")
+				}
+			}
+
 		}
 
-		var stopTimer   = false;
+		var stopTimer = false;
 		var url = document.URL;
 		var tempo = url.split("?")[1];
 		var counter = tempo;
@@ -75,9 +88,9 @@
 				return;
 			console.log('timer: ', counter--);
 			document.querySelector("#cronometro").innerText = counter;
-			if(counter == 0){
+			if (counter == 0) {
 				stopCounter();
-				alert("Tempo esgotado. Você perdeu!!!")
+				alert("Ixe boy, perdesse")
 			}
 			setTimeout(timer, 1000);
 		}
