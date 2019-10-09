@@ -6,7 +6,10 @@
 
 	<title>Estourando balões</title>
 	<style>
-
+		.balao{
+			height:59px;
+			width:65px
+		}
 	</style>
 </head>
 
@@ -46,12 +49,14 @@
 
 	</div>
 
-	<div id="campo" style="float: left; width: 650px; height: 500px; background: url('imagens/cenario.png'); background-position: bottom;">
+	<div id="campo"
+		style="float: left; width: 650px; height: 500px; background: url('imagens/cenario.png'); background-position: bottom;">
 
-	</div>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	 crossorigin="anonymous"></script>
-
+	</div>https://github.com/bwbruno/estourando_baloes_parte_1
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	
 	<script>
 		var qnt_baloes = 80;
 		var qnt_estourados = 0;
@@ -60,7 +65,7 @@
 		$("#cont_pow").text(qnt_estourados);
 
 		for (let i = 0; i < qnt_baloes; i++) {
-			$("#campo").append(`<img id="${i}" style="height:64px;width:64px" class="balao" onclick="estoura(${i})"  src="imagens/balao_azul_grande.png" alt="">`);
+			$("#campo").append(`<img id="${i}" class="balao" onclick="estoura(${i})"  src="imagens/balao_azul_grande.png" alt="">`);
 		}
 
 		function estoura(i) {
@@ -71,7 +76,9 @@
 				$("#cont_vivos").text(qnt_baloes);
 				$("#cont_pow").text(qnt_estourados);
 				if (qnt_baloes==0){
-					alert("Ganhasse gld, drx!")
+					stopCounter();
+					(confirm('Você venceu \\õ/. \nDeseja jogar novamente esse nível?')) ? window.location.reload(true) : window.location.href = 'index.html';
+					
 				}
 			}
 
@@ -108,7 +115,7 @@
 		function stopCounter() {
 			stopTimer = true;
 		}
-		
+
 	</script>
 </body>
 
